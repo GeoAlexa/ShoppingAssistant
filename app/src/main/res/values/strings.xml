@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ShoppingAssistant</string>
+    <string name="STR_HOME">Home</string>
+    <string name="STR_LIST">List</string>
+    <string name="STR_MAP">Map</string>
+    <string name="STR_ABOUT">About</string>
+</resources>
