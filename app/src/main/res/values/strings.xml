@@ -4,4 +4,18 @@
     <string name="STR_LIST">List</string>
     <string name="STR_MAP">Map</string>
     <string name="STR_ABOUT">About</string>
+    <string name="STR_LIST_NAME">List name</string>
+    <string name="STR_LIST_ITEMS">List items</string>
+    <string name="add_new_item">ADD NEW ITEM</string>
+    <string name="STR_SAVE">Save</string>
+    <string name="STR_PLACEHOLDER">PLACEHOLDER</string>
+    <string name="STR_PLACEHOLDER_ITEM_NAME">Item name</string>
+    <string name="STR_TITLE_PLACEHOLDER">Title</string>
+    <string name="STR_CANCEL">Cancel</string>
+    <string name="STR_ADD">Add</string>
+    <string name="STR_FOOD">Food</string>
+    <string name="STR_CLOTHING">Clothing</string>
+    <string name="STR_ENTERTAINMENT">Entertainment</string>
+    <string name="STR_ELECTRONICS">Electronics</string>
+    <string name="STR_ADD_LIST">ADD_LIST</string>
 </resources>

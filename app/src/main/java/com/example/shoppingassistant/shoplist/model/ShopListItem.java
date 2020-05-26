@@ -1,4 +1,6 @@
-package com.example.shoppingassistant.shoplist;
+package com.example.shoppingassistant.shoplist.model;
+
+import com.example.shoppingassistant.shoplist.interfaces.JsonSerializable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,7 +17,7 @@ public class ShopListItem implements JsonSerializable {
     private String name;
     private List<String> tagList;
 
-    ShopListItem(String name) {
+    public ShopListItem(String name) {
         this.name = name;
         this.tagList = new ArrayList<String>();
     }
@@ -27,6 +29,8 @@ public class ShopListItem implements JsonSerializable {
     public String getName() {
         return this.name;
     }
+
+    public List<String> getTagList() { return this.tagList; }
 
     public void addTag(String tag) {
         tagList.add(tag);

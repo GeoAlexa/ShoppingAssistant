@@ -7,12 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.example.shoppingassistant.R;
+import com.example.shoppingassistant.main.generic.BaseScreen;
 
-public class MapScreen extends Fragment {
-
+public class MapScreen extends BaseScreen {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.example.shoppingassistant.shoplist;
+package com.example.shoppingassistant.shoplist.interfaces;
 
 import org.json.JSONException;
 import org.json.JSONObject;

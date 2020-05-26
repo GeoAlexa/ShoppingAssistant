@@ -3,45 +3,34 @@ package com.example.shoppingassistant.main;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.shoppingassistant.R;
-import com.example.shoppingassistant.home.HomeScreen;
-import com.example.shoppingassistant.map.MapScreen;
-import com.example.shoppingassistant.shoplist.ShopListScreen;
+import com.example.shoppingassistant.navigation.NavigationManager;
+import com.example.shoppingassistant.navigation.ScreenTypeEnum;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AppNavBar implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private FragmentManager fragmentManager;
-    private Fragment        currentFragment;
+    private NavigationManager screenManager;
 
-    AppNavBar(FragmentManager fragManager) {
-        fragmentManager = fragManager;
-        currentFragment = new HomeScreen();
+    AppNavBar(NavigationManager screenManager) {
+        this.screenManager = screenManager;
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.main_menu_home:
-                currentFragment = new HomeScreen();
+                screenManager.openScreen(ScreenTypeEnum.SCREEN_TYPE_HOME);
                 break;
             case R.id.main_menu_list:
-                currentFragment = new ShopListScreen();
+                screenManager.openScreen(ScreenTypeEnum.SCREEN_TYPE_SHOPLIST);
                 break;
             case R.id.main_menu_map:
-                currentFragment = new MapScreen();
+                screenManager.openScreen(ScreenTypeEnum.SCREEN_TYPE_MAP);
                 break;
         }
-        updateView();
 
         return true;
     }
-
-    void updateView() {
-        fragmentManager.beginTransaction().replace(R.id.main_frame_layout, currentFragment).commit();
-    }
-
 }

@@ -1,4 +1,6 @@
-package com.example.shoppingassistant.shoplist;
+package com.example.shoppingassistant.shoplist.model;
+
+import com.example.shoppingassistant.shoplist.interfaces.JsonSerializable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,6 +26,8 @@ public class ShopList implements JsonSerializable {
         return title;
     }
 
+    public List<ShopListItem> getItems() {return  shopListItems;}
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -37,31 +41,45 @@ public class ShopList implements JsonSerializable {
     }
 
     @Override
-    public JSONObject toJson() throws JSONException {
+    public JSONObject toJson(){
         JSONObject shopListItemJsonObject = new JSONObject();
 
         JSONArray shopListObjcets = new JSONArray();
         for (ShopListItem item : this.shopListItems) {
-            shopListObjcets.put(item.toJson());
+            try {
+                shopListObjcets.put(item.toJson());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
-        shopListItemJsonObject.put(TITLE_KEY, this.title);
-        shopListItemJsonObject.put(SHOP_LIST_KEY, shopListObjcets);
+        try {
+            shopListItemJsonObject.put(TITLE_KEY, this.title);
+            shopListItemJsonObject.put(SHOP_LIST_KEY, shopListObjcets);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         return shopListItemJsonObject;
     }
 
     @Override
-    public void fromJson(JSONObject object) throws JSONException {
-        this.setTitle(object.getString(TITLE_KEY));
+    public void fromJson(JSONObject object){
+        try {
+            this.setTitle(object.getString(TITLE_KEY));
 
-        JSONArray array = object.getJSONArray(SHOP_LIST_KEY);
+            JSONArray array = object.getJSONArray(SHOP_LIST_KEY);
 
-        for (int i = 0; i < array.length(); ++i) {
-            ShopListItem item = new ShopListItem("");
-            item.fromJson(array.getJSONObject(i));
+            for (int i = 0; i < array.length(); ++i) {
+                ShopListItem item = new ShopListItem("");
+                item.fromJson(array.getJSONObject(i));
 
-            this.addShopListItem(item);
+                this.addShopListItem(item);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }
