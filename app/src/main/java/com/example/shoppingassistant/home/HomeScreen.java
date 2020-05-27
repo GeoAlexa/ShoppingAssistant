@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.example.shoppingassistant.R;
 import com.example.shoppingassistant.main.generic.BaseScreen;
+import com.example.shoppingassistant.navigation.ScreenTypeEnum;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
@@ -40,6 +41,12 @@ public class HomeScreen extends BaseScreen implements View.OnClickListener {
             case R.id.home_screen_button_list:
                 bottomNavigationView.findViewById(R.id.main_menu_list).performClick();
                 break;
+            case R.id.home_screen_button_map:
+                bottomNavigationView.findViewById(R.id.main_menu_map).performClick();
+                break;
+            case R.id.home_screen_button_about:
+                this.changeScreenListener.changeScreen(ScreenTypeEnum.SCREEN_TYPE_ABOUT);
+                break;
             default:
                 System.out.println("OUT");
                 break;
@@ -49,5 +56,7 @@ public class HomeScreen extends BaseScreen implements View.OnClickListener {
     private void registerButtonsListener() {
         ((Button)this.getActivity().findViewById(R.id.home_screen_button_home)).setOnClickListener(this);
         ((Button)this.getActivity().findViewById(R.id.home_screen_button_list)).setOnClickListener(this);
+        ((Button)this.getActivity().findViewById(R.id.home_screen_button_map)).setOnClickListener(this);
+        ((Button)this.getActivity().findViewById(R.id.home_screen_button_about)).setOnClickListener(this);
     }
 }

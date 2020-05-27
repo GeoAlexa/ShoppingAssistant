@@ -1,5 +1,7 @@
 package com.example.shoppingassistant.main.generic;
 
+import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 
 import com.example.shoppingassistant.main.interfaces.IChangeScreenListener;

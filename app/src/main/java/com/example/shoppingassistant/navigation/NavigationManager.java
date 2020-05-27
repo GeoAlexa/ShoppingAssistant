@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.shoppingassistant.R;
+import com.example.shoppingassistant.about.AboutScreen;
 import com.example.shoppingassistant.home.HomeScreen;
 import com.example.shoppingassistant.main.generic.BaseScreen;
 import com.example.shoppingassistant.main.interfaces.IChangeScreenListener;
@@ -51,9 +52,9 @@ public class NavigationManager {
             case SCREEN_TYPE_MAP:
                 this.currentScreen = new MapScreen();
                 break;
-//            case SCREEN_TYPE_ABOUT:
-//                this.currentScreen = new AboutScreen();
-//                break;
+            case SCREEN_TYPE_ABOUT:
+                this.currentScreen = new AboutScreen();
+                break;
             case SCREEN_TYPE_SHOPLIST:
                 setBundleData(this.shopListManagementListener.getListBundle());
                 this.currentScreen = new ShopListScreen();

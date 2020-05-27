@@ -21,6 +21,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements IChangeScreenList
 
     public static final int PERMISSION_WRITE_EXTERNAL_STORAGE = 100;
     public static final int PERMISSION_READ_EXTERNAL_STORAGE  = 101;
+    public static final int PERMISSION_ACCESS_COARSE_LOCATION = 102;
+    public static final int PERMISSION_ACCESS_FINE_LOCATION   = 103;
 
     private Map<Integer, String> permissionCodeMap;
     private NavigationManager navManager;
@@ -70,7 +73,9 @@ public class MainActivity extends AppCompatActivity implements IChangeScreenList
     private void requestAccess() {
         Integer[] requiredPermissions = {
                 PERMISSION_WRITE_EXTERNAL_STORAGE,
-                PERMISSION_READ_EXTERNAL_STORAGE
+                PERMISSION_READ_EXTERNAL_STORAGE,
+                PERMISSION_ACCESS_COARSE_LOCATION,
+                PERMISSION_ACCESS_FINE_LOCATION
         };
 
         askForPermissions(requiredPermissions);
@@ -96,6 +101,8 @@ public class MainActivity extends AppCompatActivity implements IChangeScreenList
         permissionCodeMap = new HashMap<>();
         permissionCodeMap.put(PERMISSION_WRITE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         permissionCodeMap.put(PERMISSION_READ_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE);
+        permissionCodeMap.put(PERMISSION_ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION);
+        permissionCodeMap.put(PERMISSION_ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION);
     }
 
     @Override
